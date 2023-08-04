@@ -1,17 +1,23 @@
 class Solution:
-    def is_palindromic(self,substring):
-        return substring==substring[::-1]
+    def expand_around_center(self,left,right,s):
+        while left >=0 and right < len(s) and s[left]==s[right]:
+            left-=1
+            right +=1 
+        return s[left+1:right]
+        
     def longestPalindrome(self, s: str) -> str:
-        n=len(s)
-        max_length=0
-        res=""
-        for i in range(n):
-            for j in range(i,n):
-                substring=s[i:j+1]
-                if self.is_palindromic(substring) and len(substring)>max_length:
-                    max_length=len(substring)
-                    res=substring 
-        return res
+        result=""
+        for i in range(len(s)):
+            pal1=self.expand_around_center(i,i,s)
+            pal2=self.expand_around_center(i,i+1,s)
+            if len(pal1)>len(pal2):
+                longest_pal=pal1
+            else:
+                longest_pal=pal2
+            result = longest_pal if len(longest_pal) > len(result) else result
+        return result
+            
+        
                     
                     
                     
