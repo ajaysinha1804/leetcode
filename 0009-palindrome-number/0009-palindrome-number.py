@@ -1,14 +1,18 @@
 class Solution:
-    def isPalindrome(self, x: int) -> bool:
-        if x < 0:
+    def isPalindrome(self, n: int) -> bool:
+        if n < 0:
             return False
-        div = 1
-        while x >= 10*div:
-            div *= 10
-        while x:
-            if x // div != x % 10:
-                return False
-            x=(x%div)//10
-            div=div/100
-        return True
-        
+        elif n==0:
+            return True
+        elif n%10==0:
+            return False
+        dummy=n
+        rev_no=0
+        while n>0:
+            last_digit = n%10
+            rev_no=(rev_no)*10 + last_digit
+            n=n//10
+        if rev_no==dummy:
+            return True
+        else:
+            return False
