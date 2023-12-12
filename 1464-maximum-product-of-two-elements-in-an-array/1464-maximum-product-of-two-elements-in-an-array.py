@@ -1,14 +1,10 @@
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        max1=float('-inf')
-        max2=float('-inf')
-        for i in range(len(nums)):
-            if nums[i]>max1:
-                max2=max1
-                max1=nums[i]
-            elif nums[i]>max2:
-                max2=nums[i]
-            
-        return (max1-1)*(max2-1)
+        res=0
+        curr_index=nums[0]
+        for i in range(1,len(nums)):
+            res=max(res,(curr_index -1)*(nums[i]-1))
+            curr_index=max(curr_index,nums[i])
+        return res
         
         
