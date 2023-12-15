@@ -1,12 +1,12 @@
 class Solution:
     def destCity(self, paths: List[List[str]]) -> str:
-        has_outgoing = set()
         for i in range(len(paths)):
-            has_outgoing.add(paths[i][0])
-        
-        for i in range(len(paths)):
-            candidate = paths[i][1]
-            if candidate not in has_outgoing:
-                return candidate
-        
-        return ""
+            source_key=paths[i][1]
+            flag=True
+            for j in range(len(paths)):
+                if paths[j][0]==source_key:
+                    flag=False
+                    break
+            if flag:
+                return source_key
+            
