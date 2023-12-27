@@ -4,7 +4,7 @@ class Solution:
         i = 0
         j = 0
 
-        while i < len(neededTime) and j < len(neededTime):
+        while i < len(neededTime):
             currTotal = 0
             currMax = 0
 
