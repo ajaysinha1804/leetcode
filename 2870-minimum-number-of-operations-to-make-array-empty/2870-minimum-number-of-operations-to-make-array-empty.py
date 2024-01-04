@@ -5,6 +5,9 @@ class Solution:
         for i in counter.values():
             if i==1:
                 return -1
-            operations +=ceil(i/3)
+            elif i%3==0:
+                operations +=i//3 
+            else:
+                operations +=(i//3)+1
         return operations
         
