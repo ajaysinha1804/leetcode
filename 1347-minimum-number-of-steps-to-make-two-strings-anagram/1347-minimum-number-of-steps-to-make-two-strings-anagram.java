@@ -1,15 +1,14 @@
 class Solution {
     public int minSteps(String s, String t) {
         int character[]=new int[26];
-        for(char ch: s.toCharArray()){
-            character[ch-'a']++;
+        for(int i=0;i<s.length();i++){
+            character[t.charAt(i)-'a']++;
+            character[s.charAt(i)-'a']--;
+            
         }
         int ans=0;
-        for(char ch: t.toCharArray()){
-            if(character[ch-'a']<=0){
-                ans ++;
-            }
-            character[ch-'a']--;
+        for(int j=0;j<26;j++){
+            ans +=Math.max(0,character[j]);
         }
         return ans;
         
