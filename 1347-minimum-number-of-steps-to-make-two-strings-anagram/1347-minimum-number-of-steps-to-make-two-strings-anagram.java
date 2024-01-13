@@ -1,6 +1,6 @@
 class Solution {
     public int minSteps(String s, String t) {
-        int[] character=new int[26];
+        int character[]=new int[26];
         for(char ch: s.toCharArray()){
             character[ch-'a']++;
         }
